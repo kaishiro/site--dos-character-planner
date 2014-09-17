@@ -1,0 +1,11 @@
+<div class="logo">
+  <% if current_page.url == '/' %>
+    <%= image_tag 'logo.png', :class => 'logo__image' %>
+    <h1 class="logo__heading"><%= data.site.title %></h1>
+  <% else %>
+    <% link_to '/', :class => 'logo__heading' do %>
+      <%= image_tag 'logo.png', :class => 'logo__image' %>
+      <span class="logo__heading"><%= data.site.title %></span>
+    <% end %>
+  <% end %>
+</div>

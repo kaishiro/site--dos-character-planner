@@ -1,0 +1,34 @@
+@import "neat/neat-helpers";
+
+// Ergonomics based widths
+$width-wrist-max: 100%;
+$width-palm: 95%;
+$width-palm-mq: em(400);
+$width-palm-max: em(500);
+$width-lap: 95%;
+$width-lap-mq: em(750);
+$width-lap-max: 95%;
+$width-desk: 95%;
+$width-desk-mq: em(1000);
+$width-desk-max: em(1100);
+$width-wall: 95%;
+$width-wall-mq: em(1400);
+$width-wall-max: em(1500);
+
+// Region heights
+$height-header-palm: em(50);
+$height-header-lap: em(100);
+$height-header-desk: em(125);
+
+// Breakpoints for Neat's media() mixin
+$mq-wrist-down: new-breakpoint(max-width $width-palm-mq 1);
+$mq-palm: new-breakpoint(min-width $width-palm-mq 4);
+$mq-palm-only: new-breakpoint(min-width $width-palm-mq max-width $width-lap-mq 4);
+$mq-palm-down: new-breakpoint(max-width $width-lap-mq 4);
+$mq-lap: new-breakpoint(min-width $width-lap-mq 12);
+$mq-lap-only: new-breakpoint(min-width $width-lap-mq max-width $width-desk-mq 12);
+$mq-lap-down: new-breakpoint(max-width $width-desk-mq 12);
+$mq-desk: new-breakpoint(min-width $width-desk-mq 12);
+$mq-desk-only: new-breakpoint(min-width $width-desk-mq max-width $width-wall-mq 12);
+$mq-desk-down: new-breakpoint(max-width $width-wall-mq 12);
+$mq-wall: new-breakpoint(min-width $width-wall-mq 12);
