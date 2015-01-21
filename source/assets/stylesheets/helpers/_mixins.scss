@@ -59,6 +59,7 @@
   @if $type == outer {
     @include clearfix;
     @include margin(null auto null auto);
+    position: relative;
     width: $width-palm;
     max-width: $width-palm-max;
     @include media($mq-lap) {
@@ -69,12 +70,42 @@
       width: $width-desk;
       max-width: $width-desk-max;
     }
+    @include media($mq-wall) {
+      width: $width-wall;
+      max-width: $width-wall-max;
+    }
   }
 
   @if $type == pseudo {
     @include clearfix;
     padding-left:2.5%;
     padding-right:2.5%;
+  }
+}
+
+
+/**
+ *
+ * ⌂-copy
+ *
+ * Implements standardized site copy. Accepts arguments for
+ * variants (inversions, etc.).
+ *
+ */
+@mixin ⌂-copy($variant: default) {
+  font-size: em(14);
+  line-height: em(28, 14);
+}
+
+@mixin ⌂-rte {
+  p {
+    font-size: em(14);
+    line-height: em(24, 14);
+    @include margin(null null 1em null);
+
+    &:last-child {
+      @include margin(null null 0 null);
+    }
   }
 }
 
@@ -99,6 +130,57 @@
            url('#{$file-path}.svg?#{$query-string}##{$font-family}')  format('svg');
     }
   }
+}
+
+
+/**
+ * ⌂-heading
+ *
+ * Implements a site standardized heading. Accepts a single
+ * argument for heading level.
+ *
+ */
+@mixin ⌂-heading($level) {
+  @if $level == 1 {
+    text-transform: uppercase;
+    @extend %font-weight-bold;
+    color: $color-text-heading;
+    font-size: em(28);
+  }
+
+  @if $level == 2 {
+    font-size: em(20);
+    color: $color-text-invert;
+    @include margin(1em null 1em null);
+  }
+
+  @if $level == 3 {
+    font-size: em(18);
+    line-height: em(32,18);
+  }
+
+  @if $level == 4{
+    text-transform: uppercase;
+    @extend %font-weight-bold;
+    color: $color-text-heading;
+    font-size: em(16);
+  }
+}
+
+
+/**
+ * ⌂-hide-text
+ *
+ * Hides text of applied element.  Accepts no arguments. Based
+ * off of a previous version of the H5BP image replacement 
+ * method.  I've found it to be far more reliable than the clip
+ * method.
+ *
+ */
+@mixin ⌂-hide-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
 }
 
 /**
@@ -218,7 +300,7 @@
   font-family: "fontello";
   font-size: em(strip-units($size));
   font-variant: normal;
-  text-align: cener;
+  text-align: center;
   text-transform: none;
   color: $color;
 }
@@ -240,4 +322,48 @@
   );
 
   z-index: map-get($layers, $layer);
+}
+
+/**
+ *
+ * ⌂-button
+ *
+ * Styles an element to a site specific button.  Accepts an
+ * argument for button variants.
+ *
+ */
+@mixin ⌂-button($variant) {
+  @extend %reset-button;
+  display: inline-block;
+
+  @if $variant == icon {
+  }
+}
+
+@mixin ⌂-pattern($pattern, $modifier, $context) {
+
+  @if $pattern == 'tile' {
+
+    @if $modifier == 'image-left' {
+
+      @if $context == 'desk' {
+
+        @include media($mq-desk) {
+
+          .tile__image {
+            @include size(200px);
+            padding-bottom:0;
+            background-position:50% 50%;
+            display: table-cell;
+            border-bottom: none;
+            border-right: 1px solid $color-border;
+          }
+
+          .tile__content {
+            display: table-cell;
+          }
+        }
+      }
+    }
+  }
 }

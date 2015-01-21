@@ -1,0 +1,54 @@
+- left:
+    title: 'Independent' 
+    description: '+1 Willpower' 
+  right:
+    title: 'Obedient' 
+    description: '+1 Willpower when Leader is in Sight'
+- left:
+    title: 'Compassionate' 
+    description: '+3% Critical Chance' 
+  right:
+    title: 'Heartless' 
+    description: '+20% chance to hit when backstabbing' 
+- left:
+    title: 'Altruistic' 
+    description: '+2 Reputation' 
+  right:
+    title: 'Egotistical' 
+    description: '+1 Bartering' 
+- left:
+    title: 'titleeous' 
+    description: '+1 Leadership' 
+  right:
+    title: 'Renegade' 
+    description: '+1 Pickpocketing' 
+- left:
+    title: 'Blunt' 
+    description: 'Immune to Charmed' 
+  right:
+    title: 'Considerate' 
+    description: '+1 Charisma' 
+- left:
+    title: 'Bold' 
+    description: '+1 Initiative' 
+  right:
+    title: 'Cautious' 
+    description: '+1 Sneaking' 
+- left:
+    title: 'Pragmatic' 
+    description: '+1 Crafting' 
+  right:
+    title: 'Romantic' 
+    description: '+1 Lucky Charm' 
+- left:
+    title: 'Forgiving' 
+    description: 'Immune to Cursed' 
+  right:
+    title: 'Vindictive' 
+    description: '+20% chance to hit on attack of opportunity' 
+- left:
+    title: 'Spiritual' 
+    description: 'Immune to Fear' 
+  right:
+    title: 'Materialistic' 
+    description: '+1 to Loremaster' 

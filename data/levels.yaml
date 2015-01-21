@@ -1,0 +1,100 @@
+- level: 1 
+  limits:
+    attributes: 30
+    abilities: 5
+    talents: 2
+- level: 2
+  limits:
+    attributes: 31
+    abilities: 6
+    talents: 2
+- level: 3
+  limits:
+    attributes: 31
+    abilities: 7
+    talents: 3
+- level: 4
+  limits:
+    attributes: 32
+    abilities: 8
+    talents: 3
+- level: 5
+  limits:
+    attributes: 32
+    abilities: 9
+    talents: 3
+- level: 6
+  limits:
+    attributes: 33
+    abilities: 11
+    talents: 3
+- level: 7
+  limits:
+    attributes: 33
+    abilities: 13
+    talents: 4
+- level: 8
+  limits:
+    attributes: 34
+    abilities: 15
+    talents: 4
+- level: 9
+  limits:
+    attributes: 34
+    abilities: 17
+    talents: 4
+- level: 10
+  limits:
+    attributes: 35
+    abilities: 19
+    talents: 4
+- level: 11
+  limits:
+    attributes: 35
+    abilities: 22
+    talents: 5
+- level: 12
+  limits:
+    attributes: 36
+    abilities: 25
+    talents: 5
+- level: 13
+  limits:
+    attributes: 36
+    abilities: 28
+    talents: 5
+- level: 14
+  limits:
+    attributes: 37
+    abilities: 31
+    talents: 5
+- level: 15
+  limits:
+    attributes: 37
+    abilities: 34
+    talents: 6
+- level: 16
+  limits:
+    attributes: 38
+    abilities: 37
+    talents: 6
+- level: 17
+  limits:
+    attributes: 38
+    abilities: 40
+    talents: 6
+- level: 18
+  limits:
+    attributes: 39
+    abilities: 43
+    talents: 6
+- level: 19
+  limits:
+    attributes: 39
+    abilities: 46
+    talents: 7
+- level: 20
+  limits:
+    attributes: 40
+    abilities: 49
+    talents: 7

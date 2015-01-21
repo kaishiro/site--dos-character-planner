@@ -1,3 +1,153 @@
 ---
 layout: layout--default
 ---
+
+<div class="build">
+
+  <div class="build__inner">
+
+    <div class="progression">
+
+      <button class="progression__button progression__button--decrement"></button>
+    
+      <ol class="progression__list">
+        <% data.levels.each do | level | %>
+          <li class="progression__item" data-level=<%= level[:level] %>>
+            <span class="progression__label"><%= level[:level] %></span>
+          </li>
+        <% end %>
+      </ol>
+
+      <button class="progression__button progression__button--increment"></button>
+
+    </div>
+
+    <div class="attributes">
+
+      <h3 class="attributes__heading">
+        Attributes
+      </h3>
+
+      <ul class="attributes__subheading">
+
+      </ul>
+
+        <% data.levels.each do | level | %>
+
+        <ul class="attributes__list" data-level=<%= level[:level] %> data-limit=<%= level[:limits][:attributes] %>>
+          <% data.attributes.each_with_index do | attribute, i | %>
+
+
+            <li class="attributes__item attribute attribute--<%= attribute[:title].downcase %>" data-attribute='<%= attribute[:title].downcase %>'>
+              <button class="attribute__decrement"></button>
+              <label class="attribute__label"><%= attribute[:title] %></label>
+              <input class="attribute__value" value=0 />
+              <button class="attribute__increment"></button>
+            </li>
+          <% end %>
+
+        </ul>
+
+      <% end %>
+
+    </div>
+
+    <div class="abilities">
+
+      <h3 class="abilities__heading">
+        Abilities
+      </h3>
+
+      <ul class="abilities__list">
+
+        <% data.abilities.each_with_index do | ability, i | %>
+
+          <li class="abilities__ability ability ability--<%= ability[:title].downcase.gsub(' ','-') %>">
+            <button class="ability__decrement">-</button>
+            <label class="ability__label"><%= ability[:title] %></label>
+            <button class="ability__increment">+</button>
+          </li>
+        <% end %>
+
+      </ul>
+
+    </div>
+
+    <div class="talents">
+
+      <h3 class="talents__heading">
+        Talents
+      </h3>
+
+      <ul class="talents__list">
+
+        <% data.talents.each_with_index do | talent, i | %>
+          <li class="talents__talent talent talent--<%= talent[:title].downcase.gsub(' ','-') %>">
+            <button class="talent__remove">-</button>
+            <label class="talent__label"><%= talent[:title] %></label>
+            <button class="talent__add">+</button>
+          </li>
+        <% end %>
+
+      </ul>
+
+    </div>
+
+    <div class="skills">
+
+      <h3 class="skills__heading">
+        Skills
+      </h3>
+
+        <% data.schools.each_with_index do | school, i | %>
+
+
+        <h5 class="skills__subheading">
+          <%= school[:title] %>
+        </h5>
+
+        <ul class="skills__list">
+
+          <% school[:skills].each_with_index do | skill, i | %>
+            <% slug = skill[:title].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') %>
+
+            <li class="skills__skill skill skill--<%= slug %>">
+              <button class="skill__remove">Remove</button>
+              <label class="skill__label"><%= skill[:title] %></label>
+              <%= image_tag "skill--#{slug}.png", :class => "skill__image" %>
+              <button class="skill__add">Add</button>
+            </li>
+
+          <% end %>
+
+        </ul>
+
+      <% end %>
+
+    </div>
+
+    <div class="traits">
+
+      <h3 class="traits__heading">
+        Traits
+      </h3>
+
+      <ul class="traits__list">
+
+        <% data.traits.each_with_index do | trait, i | %>
+          <li class="traits__trait trait trait--<%= trait[:left][:title].downcase.gsub(' ','-') %>-<%= trait[:right][:title].downcase.gsub(' ','-') %>">
+            <div class="trait__toggle toggle">
+              <button class="toggle__-1"><%= trait[:left][:title] %></button>
+              <button class="toggle__0">Nil</button>
+              <button class="toggle__1"><%= trait[:right][:title] %></button>
+            </div>
+          </li>
+        <% end %>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>

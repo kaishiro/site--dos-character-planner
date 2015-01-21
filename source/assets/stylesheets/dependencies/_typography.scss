@@ -1,3 +1,8 @@
+$font-weight-light: 300;
+$font-weight-book: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
 // Font Families
 %font-family-sans-serif {
   font-family: 'Open Sans', sans-serif;
@@ -22,6 +27,22 @@
 
 %font-weight-super-bold {
   font-weight: 800;
+}
+
+@mixin ⌂-font-weight($weight) {
+
+  @if $weight == light {
+    font-weight: $font-weight-light;
+  }
+  @if $weight == book {
+    font-weight: $font-weight-book;
+  }
+  @if $weight == medium {
+    font-weight: $font-weight-medium;
+  }
+  @if $weight == bold {
+    font-weight: $font-weight-bold;
+  }
 }
 
 // Font Styles

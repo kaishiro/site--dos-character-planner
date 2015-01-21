@@ -13,12 +13,12 @@
 // Dependency: Typography
 @import "dependencies/typography";
 
-// Dependency: Fontello
-@import "dependencies/fontello";
-
 // Helpers
 @import "helpers/mixins";
 @import "helpers/resets";
+
+// Dependency: Fontello
+@import "dependencies/fontello";
 
 // Foundational Reset
 @import "foundation/block";
@@ -34,22 +34,305 @@
 // Replace development sheet with component sheets on production prep
 @import "components/development";
 
+html {
+  @extend %font-family-sans-serif;
+  font-size: 16px;
+}
+
 .header {
+  @include ⌂-background($color-blue, 1);
 
   .header__inner {
+    @include ⌂-container;
+    @include padding(em(5) null em(5) null);
+    line-height: em(29);
+  }
+}
+
+.logo {
+  float: left;
+
+  .logo__heading {
+    color: $color-white;
+    font-size: em(20);
+
+    em {
+      @include ⌂-font-weight(medium);
+    }
+  }
+}
+
+.meta {
+  float: right;
+
+  .meta__field {
+    float: left;
+    @include margin(null null null em(20));
+  }
+
+  .meta__label {
+    font-size: em(10);
+    color: $color-text-invert;
+    @include margin(null em(5, 12) null null);
+    float: left;
+    text-transform: uppercase;
+    font-weight:bold;
+  }
+
+  .meta__input {
+    @include size(em(175, 14) em(20, 14));
+    @include margin(em(4, 14) null null null);
+    @include padding(null em(10, 14) null em(10, 14));
+    float: left;
+    border: none;
+    font-size: em(14);
+    color: $color-grey-dark;
+  }
+
+  .meta__timestamp {
+    font-size: em(12);
+    color: $color-text-invert;
+    @include margin(null null null em(20, 12));
+    float: left;
+    font-style: italic;
+
+    &:before {
+      content: 'Created: ';
+      font-style:normal;
+      text-transform: uppercase;
+      font-size: em(10, 12);
+      font-weight:bold;
+    }
+  }
+}
+
+.menu {
+
+  &.menu--utility {
+    float: right;
+    @include margin(null null null em(20));
+
+    .menu__item {
+
+      &.menu__item--save {
+        
+        &:before {
+          @include ⌂-icon(share, 22, $color-white);
+        }
+      }
+    }
+
+    .menu__copy {
+      @include ⌂-hide-text;
+    }
+  }
+}
+
+.build {
+  @include ⌂-background($color-grey-dark, 1);
+  @include padding(em(25) null em(25) null);
+
+  .build__inner {
     @include ⌂-container;
   }
 }
 
-.toggle {
+.progression {
+  @include span-columns(12);
+  @include omega;
+  @include margin(null null em(25) null);
+  @include position(relative, null null null null);
 
-  &.toggle--navigation {
-    
-    &:before {
-      @include ⌂-icon(menu);
+  .progression__list {
+    @include size(95% null);
+    display: table;
+    table-layout: fixed;
+    border-collapse:collapse;
+    @include margin(null auto null auto);
+  }
+
+  .progression__item {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    line-height:em(25);
+  }
+
+  .progression__label {
+    @include transition(all 100ms linear);
+    display: inline-block;
+    @include size(em(25, 10) em(25, 10));
+    border-radius:50%;
+    font-size: em(10);
+    @include ⌂-background($color-white, 1);
+    color: $color-blue;
+  }
+
+  .progression__button {
+
+    &.progression__button--increment {
+      @extend %reset-button;
+      @include position(absolute, em(-22) 0 null null);
+      @include size(em(23) em(70));
+
+      &:before {
+        @include ⌂-icon(angle-right, 64, $color-blue);
+      }
+    }
+
+    &.progression__button--decrement {
+      @extend %reset-button;
+      @include position(absolute, em(-22) null null 0);
+      @include size(em(23) em(70));
+
+      &:before {
+        @include ⌂-icon(angle-left, 64, $color-blue);
+      }
     }
   }
 
-  &.toggle--search {
+  // States
+  .progression__item {
+
+    &.is--active {
+
+      .progression__label {
+        background: $color-blue;
+        color: $color-white;
+      }
+    }
+
+    &.is--disabled {
+
+      .progression__label {
+        @include ⌂-background(darken($color-grey-dark, 5%));
+        color: lighten($color-grey-dark, 10%);
+      }
+    }
+  }
+}
+
+.levels {
+  @include ⌂-container;
+
+  .levels__headings {
+    display: table;
+    table-layout: fixed;
+    width: 50%;
+  }
+
+  .levels__heading {
+    display: table-cell;
+    font-size: em(12);
+    text-align: center;
+  }
+
+  .levels__item {
+    float: left;
+    clear: left;
+  }
+}
+
+.attributes {
+  @include span-columns(3);
+
+  .attributes__heading {
+    @include ⌂-heading(2);
+  }
+
+  .attributes__remaining {
+    position: absolute;
+    margin-left:-1em;
+    color: white;
+  }
+
+  .attributes__list {
+    display: table;
+    table-layout: fixed;
+
+    &.attributes__list--active {
+      @include ⌂-background($color-grey-mid, 1);
+      border-radius: em(5);
+    }
+
+    &.attributes__list--disabled {
+    }
+  }
+
+  .attributes__item {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.attribute {
+
+  .attribute__decrement {
+    float: left;
+    @include ⌂-button(icon);
+    @include size(25% auto);
+
+    &:before {
+      @include ⌂-icon(minus, 8, $color-blue);
+    }
+  }
+
+  .attribute__value {
+    float: left;
+    @include size(50% auto);
+    display: inline-block;
+    background: transparent;
+    border: none;
+    color: $color-text-invert;
+    text-align: center;
+    font-size: em(16);
+  }
+
+  .attribute__increment {
+    float: left;
+    @include ⌂-button(icon);
+    @include size(25% auto);
+
+    &:before {
+      @include ⌂-icon(plus, 8, $color-blue);
+    }
+  }
+
+  .attribute__label {
+    display: none;
+  }
+}
+
+.abilities {
+  @include span-columns(3);
+
+  .abilities__heading {
+    @include ⌂-heading(2);
+  }
+}
+
+.talents {
+  @include span-columns(3);
+
+  .talents__heading {
+    @include ⌂-heading(2);
+  }
+}
+
+.skills {
+  @include span-columns(3);
+  @include omega;
+
+  .skills__heading {
+    @include ⌂-heading(2);
+  }
+}
+
+.traits {
+  @include span-columns(3);
+  @include omega;
+
+  .traits__heading {
+    @include ⌂-heading(2);
   }
 }

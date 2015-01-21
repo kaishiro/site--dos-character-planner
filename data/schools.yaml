@@ -1,0 +1,39 @@
+- title: 'Aerotheurge'
+  skills:
+    - title: 'Air Shield'
+      level: 11
+      ap: 5
+      description: 'Enchant self or ally with an air shield. 100% base chance to set Shielded(Air).'
+      requirements:
+        level: 10
+        intelligence: 11
+    - title: 'Become Air'
+      level: 5
+      ap: 3
+      description: 'Absorb half of all physical damage dealt. 100% base chance to set Air.'
+      requirements:
+        level: 4
+        intelligence: 9
+    - title: 'Bitter Cold'
+      level: 2
+      ap: 3
+      description: 'Chills a target. 100% base chance to set Chilled'
+      requirements:
+        level: 1
+        intelligence: 8
+    - title: 'Blitz Bolt'
+      level: 3
+      ap: 6
+      description: 'Shoots a bolt of electricity that deals X-Y air damage. 35% base chance to set Stunned.'
+      requirements:
+        level: 1
+        intelligence: 8
+- title: 'Geomancer'
+  skills:
+    - title: 'Acid Breath'
+      level: 12
+      ap: 8
+      description: 'Poison and damage multiple targets for X-Y poison damage (Cone area). 55% base chance to set Poisoned'
+      requirements:
+        level: 10
+        intelligence: 11
